@@ -6,7 +6,7 @@ docker build -t flask_app .
 
 docker run -d -p 8080:8080 -v $(pwd)/data:/app/data flask_app
 
--v $(pwd)/data:/app/data: Este parâmetro monta um volume do host para o container. O comando $(pwd)/data refere-se ao diretório data no seu sistema local (onde $(pwd) é o diretório atual de trabalho). Esse diretório é montado no caminho /app/data dentro do container. Isso significa que qualquer dado criado ou modificado dentro do container no diretório /app/data será refletido no diretório data do host, e vice-versa.
+Este parâmetro monta um volume do host para o container. O comando refere-se ao diretório data no seu sistema local (onde $(pwd) é o diretório atual de trabalho). Esse diretório é montado no caminho /app/data dentro do container. Isso significa que qualquer dado criado ou modificado dentro do container no diretório /app/data será refletido no diretório data do host, e vice-versa.
 
 ### Para mudar o usuario
 
