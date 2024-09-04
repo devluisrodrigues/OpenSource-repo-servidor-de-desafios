@@ -2,13 +2,13 @@ import sqlite3
 import hashlib
 
 def addUser(user, pwd, type):
-    conn = sqlite3.connect('quiz.db')
+    conn = sqlite3.connect('./data/quiz.db')
     cursor = conn.cursor()
     cursor.execute('Insert into USER(user,pass,type) values("{0}","{1}","{2}");'.format(user, pwd, type))
     conn.commit()
     conn.close()  
 
-with open('users.csv','r') as file:
+with open('./src/users.csv','r') as file:
   lines = file.read().splitlines()
 
 for users in lines:

@@ -1,14 +1,22 @@
 #!/bin/bash
 
-# Checar se o banco de dados já existe
-if [ ! -f "./quiz.db" ]; then
+if [ ! -f "./data/quiz.db" ]; then
     echo "Banco de dados não encontrado. Criando banco de dados..."
 
-    sqlite3 quiz.db < quiz.sql
+    if [ -f "./src/quiz.sql" ]; then
+        echo "Executando script SQL..."
+        sqlite3 data/quiz.db < src/quiz.sql
+        echo "Banco de dados criado com sucesso!"
+    else
+        echo "Arquivo quiz.sql não encontrado!"
+        exit 1
+    fi
 
-    if [ -f "./users.csv" ]; then
+    if [ -f "./src/users.csv" ]; then
         echo "Adicionando usuários do arquivo users.csv..."
-        python add_users.py
+        python src/adduser.py
+    else
+        echo "Arquivo users.csv não encontrado!"
     fi
 else
     echo "Banco de dados encontrado."
