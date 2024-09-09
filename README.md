@@ -13,7 +13,7 @@ O parâmetro `-v $(pwd)/data:/app/data` monta um volume do host para o container
 
 Altere o arquivo users.csv -> login,admin (altere o login para o seu login, ele será definido como seu usuario e o mesmo valor também é definido para a senha)
 
-o admin criado é luis com senha luis
+O admin criado por padrão é luis com senha luis
 
 ### Para acessar o site
 
